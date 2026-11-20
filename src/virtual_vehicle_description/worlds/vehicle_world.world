@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+
+<sdf version="1.6">
+
+    <world name="vehicle_world">
+
+        <!-- Physics -->
+        <physics type="ode">
+            <max_step_size>0.001</max_step_size>
+            <real_time_update_rate>1000</real_time_update_rate>
+        </physics>
+
+        <!-- Sun -->
+        <include>
+            <uri>model://sun</uri>
+        </include>
+
+        <!-- Ground -->
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+
+        <!-- Road -->
+        <model name="road">
+
+            <static>true</static>
+
+            <link name="road_link">
+
+                <collision name="road_collision">
+                    <geometry>
+                        <box>
+                            <size>30 6 0.1</size>
+                        </box>
+                    </geometry>
+                </collision>
+
+                <visual name="road_visual">
+                    <geometry>
+                        <box>
+                            <size>30 6 0.1</size>
+                        </box>
+                    </geometry>
+
+                    <material>
+                        <ambient>0.15 0.15 0.15 1</ambient>
+                        <diffuse>0.15 0.15 0.15 1</diffuse>
+                    </material>
+
+                </visual>
+
+            </link>
+
+            <pose>0 0 0.05 0 0 0</pose>
+
+        </model>
+
+        <!-- Left road marking -->
+        <model name="left_line">
+
+            <static>true</static>
+
+            <link name="line">
+
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>30 0.08 0.01</size>
+                        </box>
+                    </geometry>
+
+                    <material>
+                        <ambient>1 1 1 1</ambient>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+
+                </visual>
+
+            </link>
+
+            <pose>0 2.5 0.106 0 0 0</pose>
+
+        </model>
+
+        <!-- Right road marking -->
+        <model name="right_line">
+
+            <static>true</static>
+
+            <link name="line">
+
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>30 0.08 0.01</size>
+                        </box>
+                    </geometry>
+
+                    <material>
+                        <ambient>1 1 1 1</ambient>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+
+                </visual>
+
+            </link>
+
+            <pose>0 -2.5 0.106 0 0 0</pose>
+
+        </model>
+
+        <!-- Centre lane marking -->
+        <model name="centre_line">
+
+            <static>true</static>
+
+            <link name="line">
+
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>30 0.05 0.01</size>
+                        </box>
+                    </geometry>
+
+                    <material>
+                        <ambient>1 1 0 1</ambient>
+                        <diffuse>1 1 0 1</diffuse>
+                    </material>
+
+                </visual>
+
+            </link>
+
+            <pose>0 0 0.106 0 0 0</pose>
+
+        </model>
+
+    </world>
+
+</sdf>
